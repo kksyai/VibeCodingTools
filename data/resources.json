@@ -279,6 +279,13 @@
           "url": "https://exa.ai/",
           "description": "API для AI-поиска и краулинга",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=exa.ai"
+        },
+        {
+          "id": "anthropic-courses",
+          "name": "Anthropic Courses",
+          "url": "https://anthropic.skilljar.com/",
+          "description": "Browse all Anthropic courses",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.skilljar.com"
         }
       ]
     },
