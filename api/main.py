@@ -22,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), "../data/resources.json")
+DATA_FILE = os.path.join(os.path.dirname(__file__), "data/resources.json")
 
 ZAI_API_KEY = os.getenv("ZAI_API_KEY", "")
 
