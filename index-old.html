@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VibeCoding Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e12;
+    --surface: #16161d;
+    --surface-hover: #1e1e28;
+    --border: #2a2a36;
+    --text: #e4e4ec;
+    --text-muted: #8888a0;
+    --icon-bg: #e9e9f0;
+    --accent-ai: #a78bfa;
+    --accent-code: #34d399;
+    --accent-skills: #2dd4bf;
+    --accent-deploy: #fb923c;
+    --accent-design: #f472b6;
+    --accent-docs: #60a5fa;
+    --accent-utils: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    padding: 3rem 1.5rem;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(167,139,250,0.06), transparent),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(52,211,153,0.04), transparent);
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, #a78bfa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .category {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .category-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .category-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .category-count {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    margin-left: auto;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .tools-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.5rem; }
+    body { padding: 2rem 1rem; }
+  }
+
+  .tool {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .tool:hover {
+    background: var(--surface-hover);
+    border-color: var(--border);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .tool-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    background: var(--icon-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .tool-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .tool-info {
+    min-width: 0;
+  }
+
+  .tool-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tool-desc {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .footer a {
+    color: var(--accent-ai);
+    text-decoration: none;
+  }
+  .footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🛠 VibeCoding Tools</h1>
+  <div class="subtitle">Инструменты и flow</div>
+
+  <!-- AI-модели и API -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-ai)"></div>
+      <div class="category-title">AI-модели и API</div>
+      <div class="category-count">6</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://arena.ai/leaderboard" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=arena.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Arena Leaderboard</div>
+          <div class="tool-desc">Рейтинг AI-моделей на основе слепого сравнения</div>
+        </div>
+      </a>
+      <a class="tool" href="https://cloud.cerebras.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=cerebras.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Cerebras Cloud</div>
+          <div class="tool-desc">Ультра-быстрый инференс</div>
+        </div>
+      </a>
+      <a class="tool" href="https://z.ai" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=z.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">GLM (z.ai)</div>
+          <div class="tool-desc">AI-кодинг на базе GLM-4.7</div>
+        </div>
+      </a>
+      <a class="tool" href="https://aistudio.google.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=aistudio.google.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Google AI Studio</div>
+          <div class="tool-desc">Интерфейс для работы с Gemini</div>
+        </div>
+      </a>
+      <a class="tool" href="https://openrouter.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=openrouter.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">OpenRouter</div>
+          <div class="tool-desc">Единый API-шлюз к LLM</div>
+        </div>
+      </a>
+      <a class="tool" href="https://www.perplexity.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=perplexity.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Perplexity</div>
+          <div class="tool-desc">AI-поисковик с источниками</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- AI-редакторы и кодинг-агенты -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-code)"></div>
+      <div class="category-title">AI-редакторы и кодинг-агенты</div>
+      <div class="category-count">9</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://cursor.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=cursor.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Cursor</div>
+          <div class="tool-desc">AI-редактор на базе VS Code</div>
+        </div>
+      </a>
+      <a class="tool" href="https://claude.com/product/claude-code" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=claude.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Claude Code</div>
+          <div class="tool-desc">AI-агент для терминала и IDE</div>
+        </div>
+      </a>
+      <a class="tool" href="https://docs.clawd.bot/start/clawd" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=clawd.bot" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Clawd Bot</div>
+          <div class="tool-desc">Документация бот-платформы Clawd</div>
+        </div>
+      </a>
+      <a class="tool" href="https://monica.im" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=monica.im" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Monica</div>
+          <div class="tool-desc">AI-ассистент в браузере</div>
+        </div>
+      </a>
+      <a class="tool" href="https://opencode.ai/docs/ide/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=opencode.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">OpenCode IDE</div>
+          <div class="tool-desc">AI-IDE с документацией</div>
+        </div>
+      </a>
+      <a class="tool" href="https://stitch.withgoogle.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=stitch.withgoogle.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Stitch by Google</div>
+          <div class="tool-desc">AI-дизайн от Google</div>
+        </div>
+      </a>
+      <a class="tool" href="https://vite.dev/guide/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=vite.dev" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Vite</div>
+          <div class="tool-desc">Быстрый сборщик для веб-проектов</div>
+        </div>
+      </a>
+      <a class="tool" href="https://www.viewcreator.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=viewcreator.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">ViewCreator</div>
+          <div class="tool-desc">Автоматизация вирального контента</div>
+        </div>
+      </a>
+      <a class="tool" href="https://v0.app/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=v0.app" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">v0 by Vercel</div>
+          <div class="tool-desc">AI-генератор UI и приложений</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Skills & MCP -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-skills)"></div>
+      <div class="category-title">Skills & MCP</div>
+      <div class="category-count">2</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://github.com/steveyegge/beads" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=github.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Beads</div>
+          <div class="tool-desc">Память для кодинг-агентов</div>
+        </div>
+      </a>
+      <a class="tool" href="https://context7.com/dashboard" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=context7.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Context7</div>
+          <div class="tool-desc">MCP официальной документации агентов</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Деплой и хостинг -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-deploy)"></div>
+      <div class="category-title">Деплой и хостинг</div>
+      <div class="category-count">4</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://vercel.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=vercel.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Vercel</div>
+          <div class="tool-desc">Фронтенд и серверлесс</div>
+        </div>
+      </a>
+      <a class="tool" href="https://railway.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=railway.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Railway</div>
+          <div class="tool-desc">Бэкенд-сервисы и БД</div>
+        </div>
+      </a>
+      <a class="tool" href="https://dashboard.render.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=render.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Render</div>
+          <div class="tool-desc">Веб-сервисы и статика</div>
+        </div>
+      </a>
+      <a class="tool" href="https://supabase.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=supabase.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Supabase</div>
+          <div class="tool-desc">PostgreSQL, auth, storage</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Дизайн и UI-референсы -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-design)"></div>
+      <div class="category-title">Дизайн и UI-референсы</div>
+      <div class="category-count">4</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://www.canva.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=canva.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Canva</div>
+          <div class="tool-desc">Графика, презентации, соцсети</div>
+        </div>
+      </a>
+      <a class="tool" href="https://collectui.com/challenges/leaderboard" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=collectui.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Collect UI</div>
+          <div class="tool-desc">Ежедневная подборка UI-вдохновения</div>
+        </div>
+      </a>
+      <a class="tool" href="https://dribbble.com" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=dribbble.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Dribbble</div>
+          <div class="tool-desc">UI/UX-референсы и портфолио</div>
+        </div>
+      </a>
+      <a class="tool" href="https://codepen.io" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=codepen.io" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">CodePen</div>
+          <div class="tool-desc">Песочница HTML/CSS/JS</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Документация и фреймворки -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-docs)"></div>
+      <div class="category-title">Документация и фреймворки</div>
+      <div class="category-count">4</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://tailwindcss.com/docs/border-style" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=tailwindcss.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Tailwind CSS</div>
+          <div class="tool-desc">Утилитарный CSS-фреймворк</div>
+        </div>
+      </a>
+      <a class="tool" href="https://react.dev/learn/react-developer-tools" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=react.dev" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">React DevTools</div>
+          <div class="tool-desc">Документация React DevTools</div>
+        </div>
+      </a>
+      <a class="tool" href="https://core.telegram.org/bots/webapps" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=telegram.org" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Telegram Mini Apps</div>
+          <div class="tool-desc">Мини-приложения в ботах</div>
+        </div>
+      </a>
+      <a class="tool" href="https://exa.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=exa.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Exa</div>
+          <div class="tool-desc">API для AI-поиска и краулинга</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Утилиты и продуктивность -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-dot" style="background: var(--accent-utils)"></div>
+      <div class="category-title">Утилиты и продуктивность</div>
+      <div class="category-count">6</div>
+    </div>
+    <div class="tools-grid">
+      <a class="tool" href="https://cleanshot.com/features" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=cleanshot.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">CleanShot X</div>
+          <div class="tool-desc">Скриншоты и запись экрана</div>
+        </div>
+      </a>
+      <a class="tool" href="https://handy.computer/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=handy.computer" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Handy</div>
+          <div class="tool-desc">Speech-to-text</div>
+        </div>
+      </a>
+      <a class="tool" href="https://www.granola.ai/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=granola.ai" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Granola</div>
+          <div class="tool-desc">AI-блокнот для заметок</div>
+        </div>
+      </a>
+      <a class="tool" href="https://www.mindsera.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=mindsera.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Mindsera</div>
+          <div class="tool-desc">AI-дневник для ментального здоровья</div>
+        </div>
+      </a>
+      <a class="tool" href="https://antigravity.google/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=google.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">Google Antigravity</div>
+          <div class="tool-desc">Пасхалка Google 🥚</div>
+        </div>
+      </a>
+      <a class="tool" href="https://app.manychat.com/" target="_blank">
+        <div class="tool-icon-wrap"><img class="tool-icon" src="https://www.google.com/s2/favicons?sz=64&domain=manychat.com" alt=""></div>
+        <div class="tool-info">
+          <div class="tool-name">ManyChat</div>
+          <div class="tool-desc">Чат-боты для Instagram</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    35 инструментов · обновлено 05.02.2026 ·
+    <a href="https://github.com/kksyai/VibeCodingTools" target="_blank">GitHub</a>
+  </div>
+</div>
+</body>
+</html>

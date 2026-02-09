@@ -1,0 +1,49 @@
+::1 - - [09/Feb/2026 12:31:48] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:32:16] "HEAD /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:37:21] "GET / HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:37:22] code 404, message File not found
+::1 - - [09/Feb/2026 12:37:22] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [09/Feb/2026 12:38:30] "GET / HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:38:32] "GET / HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:39:49] "GET /data/resources.json HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:41:06] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:41:38] "GET / HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:41:43] "GET / HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:41:44] "GET / HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:42:47] "GET / HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:42:48] code 404, message File not found
+::1 - - [09/Feb/2026 12:42:48] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [09/Feb/2026 12:42:57] "GET / HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:42:58] code 404, message File not found
+::1 - - [09/Feb/2026 12:42:58] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [09/Feb/2026 12:42:58] "GET / HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:42:58] code 404, message File not found
+::1 - - [09/Feb/2026 12:42:58] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [09/Feb/2026 12:43:28] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:43:28] "GET /data/resources.json?t=1770641008541 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:50:58] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:51:03] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:51:22] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:51:22] "GET /data/resources.json?t=1770641482262 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:19] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:19] "GET /data/resources.json?t=1770641539760 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:21] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:21] "GET /data/resources.json?t=1770641541516 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:22] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:22] "GET /data/resources.json?t=1770641542267 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:22] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:22] "GET /data/resources.json?t=1770641542716 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:22] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:22] "GET /data/resources.json?t=1770641542904 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:23] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:23] "GET /data/resources.json?t=1770641543089 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:23] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:23] "GET /data/resources.json?t=1770641543271 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:23] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:23] "GET /data/resources.json?t=1770641543455 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 12:52:24] "GET /index-new.html HTTP/1.1" 304 -
+::1 - - [09/Feb/2026 12:52:24] "GET /data/resources.json?t=1770641544700 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 13:01:14] "GET /index-new.html HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 13:01:14] "GET /data/resources.json?t=1770642074560 HTTP/1.1" 200 -
+::1 - - [09/Feb/2026 13:01:14] code 404, message File not found
+::1 - - [09/Feb/2026 13:01:14] "GET /favicon.ico HTTP/1.1" 404 -

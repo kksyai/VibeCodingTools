@@ -1,0 +1,321 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-09",
+  "categories": {
+    "ai-models": {
+      "id": "ai-models",
+      "name": "AI-модели и API",
+      "color": "#a78bfa",
+      "tools": [
+        {
+          "id": "arena-leaderboard",
+          "name": "Arena Leaderboard",
+          "url": "https://arena.ai/leaderboard",
+          "description": "Рейтинг AI-моделей на основе слепого сравнения",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=arena.ai"
+        },
+        {
+          "id": "cerebras-cloud",
+          "name": "Cerebras Cloud",
+          "url": "https://cloud.cerebras.ai/",
+          "description": "Ультра-быстрый инференс",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=cerebras.ai"
+        },
+        {
+          "id": "glm-zai",
+          "name": "GLM (z.ai)",
+          "url": "https://z.ai",
+          "description": "AI-кодинг на базе GLM-4.7",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=z.ai"
+        },
+        {
+          "id": "google-ai-studio",
+          "name": "Google AI Studio",
+          "url": "https://aistudio.google.com/",
+          "description": "Интерфейс для работы с Gemini",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=aistudio.google.com"
+        },
+        {
+          "id": "openrouter",
+          "name": "OpenRouter",
+          "url": "https://openrouter.ai/",
+          "description": "Единый API-шлюз к LLM",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=openrouter.ai"
+        },
+        {
+          "id": "perplexity",
+          "name": "Perplexity",
+          "url": "https://www.perplexity.ai/",
+          "description": "AI-поисковик с источниками",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=perplexity.ai"
+        }
+      ]
+    },
+    "ai-editors": {
+      "id": "ai-editors",
+      "name": "AI-редакторы и кодинг-агенты",
+      "color": "#34d399",
+      "tools": [
+        {
+          "id": "cursor",
+          "name": "Cursor",
+          "url": "https://cursor.com/",
+          "description": "AI-редактор на базе VS Code",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=cursor.com"
+        },
+        {
+          "id": "claude-code",
+          "name": "Claude Code",
+          "url": "https://claude.com/product/claude-code",
+          "description": "AI-агент для терминала и IDE",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=claude.com"
+        },
+        {
+          "id": "clawd-bot",
+          "name": "Clawd Bot",
+          "url": "https://docs.clawd.bot/start/clawd",
+          "description": "Документация бот-платформы Clawd",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=clawd.bot"
+        },
+        {
+          "id": "monica",
+          "name": "Monica",
+          "url": "https://monica.im",
+          "description": "AI-ассистент в браузере",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=monica.im"
+        },
+        {
+          "id": "opencode-ide",
+          "name": "OpenCode IDE",
+          "url": "https://opencode.ai/docs/ide/",
+          "description": "AI-IDE с документацией",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=opencode.ai"
+        },
+        {
+          "id": "stitch-google",
+          "name": "Stitch by Google",
+          "url": "https://stitch.withgoogle.com/",
+          "description": "AI-дизайн от Google",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=stitch.withgoogle.com"
+        },
+        {
+          "id": "vite",
+          "name": "Vite",
+          "url": "https://vite.dev/guide/",
+          "description": "Быстрый сборщик для веб-проектов",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=vite.dev"
+        },
+        {
+          "id": "viewcreator",
+          "name": "ViewCreator",
+          "url": "https://www.viewcreator.ai/",
+          "description": "Автоматизация вирального контента",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=viewcreator.ai"
+        },
+        {
+          "id": "v0-vercel",
+          "name": "v0 by Vercel",
+          "url": "https://v0.app/",
+          "description": "AI-генератор UI и приложений",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=v0.app"
+        },
+        {
+          "id": "qwen",
+          "name": "Qwen",
+          "url": "https://qwen.ai/home",
+          "description": "AI-модель для чата",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=qwen.ai"
+        }
+      ]
+    },
+    "skills-mcp": {
+      "id": "skills-mcp",
+      "name": "Skills & MCP",
+      "color": "#2dd4bf",
+      "tools": [
+        {
+          "id": "beads",
+          "name": "Beads",
+          "url": "https://github.com/steveyegge/beads",
+          "description": "Память для кодинг-агентов",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
+        },
+        {
+          "id": "context7",
+          "name": "Context7",
+          "url": "https://context7.com/dashboard",
+          "description": "MCP официальной документации агентов",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=context7.com"
+        },
+        {
+          "id": "the-agent-skills-directory",
+          "name": "The Agent Skills Directory",
+          "url": "https://skills.sh/",
+          "description": "Каталог скиллов для AI агентов",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=skills.sh"
+        }
+      ]
+    },
+    "deploy": {
+      "id": "deploy",
+      "name": "Деплой и хостинг",
+      "color": "#fb923c",
+      "tools": [
+        {
+          "id": "vercel",
+          "name": "Vercel",
+          "url": "https://vercel.com/",
+          "description": "Фронтенд и серверлесс",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=vercel.com"
+        },
+        {
+          "id": "railway",
+          "name": "Railway",
+          "url": "https://railway.com/",
+          "description": "Бэкенд-сервисы и БД",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=railway.com"
+        },
+        {
+          "id": "render",
+          "name": "Render",
+          "url": "https://dashboard.render.com/",
+          "description": "Веб-сервисы и статика",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=render.com"
+        },
+        {
+          "id": "supabase",
+          "name": "Supabase",
+          "url": "https://supabase.com/",
+          "description": "PostgreSQL, auth, storage",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com"
+        }
+      ]
+    },
+    "design": {
+      "id": "design",
+      "name": "Дизайн и UI-референсы",
+      "color": "#f472b6",
+      "tools": [
+        {
+          "id": "canva",
+          "name": "Canva",
+          "url": "https://www.canva.com/",
+          "description": "Графика, презентации, соцсети",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=canva.com"
+        },
+        {
+          "id": "collectui",
+          "name": "Collect UI",
+          "url": "https://collectui.com/challenges/leaderboard",
+          "description": "Ежедневная подборка UI-вдохновения",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=collectui.com"
+        },
+        {
+          "id": "dribbble",
+          "name": "Dribbble",
+          "url": "https://dribbble.com",
+          "description": "UI/UX-референсы и портфолио",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=dribbble.com"
+        },
+        {
+          "id": "codepen",
+          "name": "CodePen",
+          "url": "https://codepen.io",
+          "description": "Песочница HTML/CSS/JS",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=codepen.io"
+        }
+      ]
+    },
+    "docs": {
+      "id": "docs",
+      "name": "Документация и фреймворки",
+      "color": "#60a5fa",
+      "tools": [
+        {
+          "id": "tailwind",
+          "name": "Tailwind CSS",
+          "url": "https://tailwindcss.com/docs/border-style",
+          "description": "Утилитарный CSS-фреймворк",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=tailwindcss.com"
+        },
+        {
+          "id": "react-devtools",
+          "name": "React DevTools",
+          "url": "https://react.dev/learn/react-developer-tools",
+          "description": "Документация React DevTools",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=react.dev"
+        },
+        {
+          "id": "telegram-mini-apps",
+          "name": "Telegram Mini Apps",
+          "url": "https://core.telegram.org/bots/webapps",
+          "description": "Мини-приложения в ботах",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=telegram.org"
+        },
+        {
+          "id": "exa",
+          "name": "Exa",
+          "url": "https://exa.ai/",
+          "description": "API для AI-поиска и краулинга",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=exa.ai"
+        }
+      ]
+    },
+    "utils": {
+      "id": "utils",
+      "name": "Утилиты и продуктивность",
+      "color": "#94a3b8",
+      "tools": [
+        {
+          "id": "cleanshot",
+          "name": "CleanShot X",
+          "url": "https://cleanshot.com/features",
+          "description": "Скриншоты и запись экрана",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=cleanshot.com"
+        },
+        {
+          "id": "handy",
+          "name": "Handy",
+          "url": "https://handy.computer/",
+          "description": "Преобразование речи в текст",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=handy.computer"
+        },
+        {
+          "id": "granola",
+          "name": "Granola",
+          "url": "https://www.granola.ai/",
+          "description": "AI-блокнот для заметок",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=granola.ai"
+        },
+        {
+          "id": "mindsera",
+          "name": "Mindsera",
+          "url": "https://www.mindsera.com/",
+          "description": "AI-дневник для ментального здоровья",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=mindsera.com"
+        },
+        {
+          "id": "google-antigravity",
+          "name": "Google Antigravity",
+          "url": "https://antigravity.google/",
+          "description": "Пасхалка Google 🥚",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=google.com"
+        },
+        {
+          "id": "manychat",
+          "name": "ManyChat",
+          "url": "https://app.manychat.com/",
+          "description": "Чат-боты для Instagram",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=manychat.com"
+        },
+        {
+          "id": "test-tool",
+          "name": "Test Tool",
+          "url": "https://test-example.com",
+          "description": "Тестовый ресурс",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=test-example.com"
+        }
+      ]
+    }
+  }
+}
