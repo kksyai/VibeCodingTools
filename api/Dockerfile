@@ -14,5 +14,5 @@ ENV API_BASE_URL=http://127.0.0.1:8000
 
 EXPOSE 8000
 
-# Run both API and bot
-CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port $PORT & cd /app/bot && python3 bot.py"]
+# Run API as primary process and keep bot in restart loop
+CMD ["sh", "-c", "while true; do cd /app/bot && python3 bot.py; sleep 5; done & exec uvicorn api.main:app --host 0.0.0.0 --port $PORT"]
