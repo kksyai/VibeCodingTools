@@ -230,6 +230,13 @@
           "url": "https://codepen.io",
           "description": "Песочница HTML/CSS/JS",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=codepen.io"
+        },
+        {
+          "id": "undesign-|-collection-of-free-design-tools-and-resources-for-makers,-developers-and-designers",
+          "name": "Undesign | Collection of free design tools and resources for makers, developers and designers",
+          "url": "https://undesign.learn.uno/",
+          "description": "Collection of free design tools and resources for makers, developers and designers",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=undesign.learn.uno"
         }
       ]
     },
