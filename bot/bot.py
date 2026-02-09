@@ -10,6 +10,8 @@ import httpx
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
+from bot.core import append_resource_with_retry, classify_resource, validate_required_env
+
 load_dotenv()
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -27,16 +29,6 @@ categories_map = {
     "design": "Дизайн и UI-референсы",
     "docs": "Документация и фреймворки",
     "utils": "Утилиты и продуктивность"
-}
-
-keywords_map = {
-    "ai-models": ["AI", "LLM", "API", "model", "OpenAI", "Claude", "Gemini", "GLM"],
-    "ai-editors": ["editor", "IDE", "cursor", "coding", "agent", "bot", "assistant", "Monica", "Claude Code"],
-    "skills-mcp": ["MCP", "skill", "Beads", "context", "agent"],
-    "deploy": ["deploy", "hosting", "Vercel", "Railway", "Render", "Supabase", "serverless", "cloud"],
-    "design": ["design", "UI", "Canva", "Dribbble", "Figma", "UI/UX", "interface", "style"],
-    "docs": ["docs", "documentation", "React", "Tailwind", "framework", "guide", "reference", "Telegram"],
-    "utils": ["tool", "utility", "productivity", "screenshot", "note", "capture", "record", "converter"]
 }
 
 pending_resources = {}
@@ -75,18 +67,6 @@ async def fetch_url_info(url: str) -> Optional[dict]:
 
 def get_favicon_url(domain: str) -> str:
     return f"https://www.google.com/s2/favicons?sz=64&domain={domain}"
-
-
-def classify_resource(url: str, title: str = "", description: str = "") -> str:
-    text = f"{url} {title} {description}".lower()
-
-    scores = {}
-    for category, keywords in keywords_map.items():
-        score = sum(1 for kw in keywords if kw.lower() in text)
-        scores[category] = score
-
-    best = max(scores, key=scores.get)
-    return best if scores[best] > 0 else "utils"
 
 
 def truncate_description(text: str, limit: int = 100) -> str:
@@ -271,34 +251,16 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             return
 
         try:
-            data, sha = await github_read_resources()
+            status = await append_resource_with_retry(
+                resource,
+                read_fn=github_read_resources,
+                write_fn=github_write_resources,
+                max_retries=2,
+            )
 
-            category = resource["category"]
-            resource_id = resource["name"].lower().replace(" ", "-").replace(".", "").replace("/", "")
-
-            new_tool = {
-                "id": resource_id,
-                "name": resource["name"],
-                "url": resource["url"],
-                "description": resource["description"],
-                "icon": resource["icon"],
-            }
-
-            if category not in data["categories"]:
-                await query.edit_message_text(f"Категория '{category}' не найдена")
-                return
-
-            existing_ids = [t["id"] for t in data["categories"][category]["tools"]]
-            if resource_id in existing_ids:
+            if status == "exists":
                 await query.edit_message_text("Ресурс с таким ID уже существует")
                 return
-
-            data["categories"][category]["tools"].append(new_tool)
-
-            await github_write_resources(
-                data, sha,
-                f"add: {resource['name']} to {categories_map.get(category, category)}"
-            )
 
             await query.edit_message_text(f"Ресурс '{resource['name']}' добавлен! Сайт обновится через ~10 сек.")
             del pending_resources[user_id]
@@ -354,6 +316,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
 
 def main() -> None:
+    validate_required_env(os.environ)
     application = Application.builder().token(BOT_TOKEN).build()
 
     application.add_handler(CommandHandler("start", start))

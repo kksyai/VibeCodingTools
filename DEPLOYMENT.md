@@ -19,12 +19,12 @@
 ### Проверка:
 
 ```bash
-curl https://vibecodingtools.vercel.app/api/health
+curl https://vibecodingtools.vercel.app/data/resources.json
 ```
 
 ---
 
-## Railway (API + Telegram бот)
+## Railway (Telegram бот)
 
 ### Шаги:
 
@@ -33,12 +33,11 @@ curl https://vibecodingtools.vercel.app/api/health
 3. **Нажмите** "Deploy from GitHub repo"
 4. **Выберите** репозиторий: `kksyai/VibeCodingTools`
 5. **Настройте сервис:**
-   - Select Service: `Docker` (использует `api/Dockerfile`)
+   - Select Service: `Docker` (использует `bot/Dockerfile`)
    - Environment Variables:
      ```
-     PORT=8000
-      ZAI_API_KEY=your_zai_api_key
-      TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+     TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+     GITHUB_TOKEN=your_github_personal_access_token
      ```
 6. **Нажмите** "Deploy"
 7. **После деплоя** получите URL вида: `https://your-app.railway.app`
@@ -46,7 +45,7 @@ curl https://vibecodingtools.vercel.app/api/health
 ### Проверка:
 
 ```bash
-curl https://your-app.railway.app/api/health
+curl https://vibecodingtools.vercel.app/data/resources.json
 ```
 
 ---
@@ -57,11 +56,10 @@ curl https://your-app.railway.app/api/health
 
 Откройте: `https://vibecodingtools.vercel.app`
 
-### 2. Проверьте API
+### 2. Проверьте JSON-данные
 
 ```bash
-curl https://your-app.railway.app/api/health
-curl https://your-app.railway.app/api/resources
+curl https://vibecodingtools.vercel.app/data/resources.json
 ```
 
 ### 3. Протестируйте бота
@@ -86,9 +84,9 @@ curl https://your-app.railway.app/api/resources
 
 ### Railway
 
-**Проблема:** API не запускается
+**Проблема:** Бот не запускается
 - Проверьте логи в Railway dashboard
-- Убедитесь что порт 8000 указан в env переменных
+- Убедитесь что `TELEGRAM_BOT_TOKEN` и `GITHUB_TOKEN` заданы
 
 **Проблема:** Бот не отвечает
 - Проверьте что `TELEGRAM_BOT_TOKEN` задан правильно
@@ -99,18 +97,11 @@ curl https://your-app.railway.app/api/resources
 
 ## Локальный запуск
 
-### API:
-
-```bash
-cd api
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
 ### Telegram бот:
 
 ```bash
 cd bot
+pip install -r requirements.txt
 cp .env.example .env
 # Отредактируйте .env
 python bot.py
@@ -129,14 +120,14 @@ python3 -m http.server 8080
 
 ### Railway:
 
-- `PORT=8000` - порт для API
-- `ZAI_API_KEY=...` - API ключ для классификации
 - `TELEGRAM_BOT_TOKEN=...` - токен Telegram бота
+- `GITHUB_TOKEN=...` - GitHub token с правами на запись в repo
 
 ### Local (.env):
 
 ```bash
-API_BASE_URL=http://localhost:8001
+TELEGRAM_BOT_TOKEN=...
+GITHUB_TOKEN=...
 ```
 
 ---
@@ -148,13 +139,9 @@ VibeCodingTools/
 ├── index.html              # Фронтенд
 ├── data/
 │   └── resources.json      # База данных ресурсов
-├── api/
-│   ├── main.py            # FastAPI приложение
-│   ├── Dockerfile         # Docker контейнер
-│   └── requirements.txt   # Python зависимости
 ├── bot/
 │   ├── bot.py            # Telegram бот
-│   ├── .env             # Переменные окружения
+│   ├── .env              # Переменные окружения
 │   └── requirements.txt   # Python зависимости
 ├── vercel.json           # Конфиг для Vercel
 ├── railway.toml          # Конфиг для Railway

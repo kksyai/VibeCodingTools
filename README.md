@@ -18,18 +18,15 @@
 ```
 VibeCodingTools/
 ├── data/
-│   └── resources.json          # База данных ресурсов
-├── api/
-│   ├── main.py                  # FastAPI приложение
-│   ├── Dockerfile               # Docker контейнер
-│   └── requirements.txt        # Python зависимости
- ├── bot/
- │   ├── bot.py                   # Telegram бот
- │   ├── .env.example             # Пример переменных окружения
- │   └── requirements.txt        # Python зависимости
- ├── index.html                   # Веб-интерфейс
- ├── vercel.json                  # Конфиг для Vercel
- └── railway.toml                # Конфиг для Railway
+│   └── resources.json           # База данных ресурсов
+├── bot/
+│   ├── bot.py                   # Telegram бот
+│   ├── .env.example             # Пример переменных окружения
+│   ├── requirements.txt         # Python зависимости
+│   └── Dockerfile               # Docker контейнер
+├── index.html                   # Веб-интерфейс
+├── vercel.json                  # Конфиг для Vercel
+└── railway.toml                 # Конфиг для Railway
  ```
 
 ## Деплой
@@ -39,12 +36,12 @@ VibeCodingTools/
 ### Быстрый старт:
 
 1. **Vercel (фронтенд)**: https://vercel.com/new
-2. **Railway (API + бот)**: https://railway.app/new
+2. **Railway (Telegram бот)**: https://railway.app/new
 
 ### После деплоя:
 
 1. Проверьте фронтенд: `https://vibecodingtools.vercel.app`
-2. Проверьте API: `https://your-app.railway.app/api/health`
+2. Проверьте JSON-данные: `https://vibecodingtools.vercel.app/data/resources.json`
 3. Протестируйте бота: `@kksyairenderbot`
 
 ## Категории
@@ -59,16 +56,6 @@ VibeCodingTools/
 
 ## Локальный запуск
 
-### API (FastAPI)
-
-```bash
-cd api
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-```
-
-API будет доступен на `http://localhost:8000`
-
 ### Telegram бот
 
 ```bash
@@ -80,7 +67,7 @@ cp .env.example .env
 Отредактируйте `.env`:
 ```
 TELEGRAM_BOT_TOKEN=your_bot_token
-API_BASE_URL=http://localhost:8000
+GITHUB_TOKEN=your_github_personal_access_token
 ```
 
 Запустите бота:
@@ -96,42 +83,24 @@ python bot.py
 2. Настройте build settings в `vercel.json`
 3. Деплой произойдет автоматически
 
-### Railway (API + бот)
+### Railway (Telegram бот)
 
 1. Создайте новый проект на Railway
-2. Добавьте сервисы:
-   - Docker сервис для API (используйте `api/Dockerfile`)
-   - Добавьте переменные окружения:
-     - `TELEGRAM_BOT_TOKEN`
-     - `PORT=8000`
-3. Деплой произойдет автоматически
+2. Добавьте Docker сервис (используйте `bot/Dockerfile`)
+3. Добавьте переменные окружения:
+   - `TELEGRAM_BOT_TOKEN`
+   - `GITHUB_TOKEN`
+4. Деплой произойдет автоматически
 
-## API Эндпоинты
+## Данные
 
-### GET `/api/resources`
-Получить все ресурсы
+### JSON база
 
-### POST `/api/classify`
-Классифицировать ресурс по URL
-```json
-{
-  "url": "https://example.com"
-}
-```
+Фронтенд читает данные из `data/resources.json`.
 
-### POST `/api/resources`
-Добавить новый ресурс
-```json
-{
-  "url": "https://example.com",
-  "name": "Example Tool",
-  "description": "Описание",
-  "category": "ai-models"
-}
-```
+Проверьте актуальные данные:
 
-### GET `/api/health`
-Проверка здоровья API
+`https://vibecodingtools.vercel.app/data/resources.json`
 
 ## Telegram бот команды
 
@@ -144,12 +113,11 @@ python bot.py
 ## Как это работает
 
 1. Пользователь отправляет ссылку в Telegram
-2. Бот отправляет URL в API для классификации
-3. API парсит страницу (title, description)
-4. Определяет категорию по ключевым словам
-5. Отправляет результат пользователю
-6. Пользователь подтверждает или меняет категорию
-7. Ресурс сохраняется в `data/resources.json`
+2. Бот парсит страницу (title, description)
+3. Определяет категорию по ключевым словам
+4. Готовит превью и просит подтверждение пользователя
+5. Пользователь подтверждает или меняет категорию
+6. Ресурс сохраняется в `data/resources.json` через GitHub API
 
 ## AI Классификация
 
@@ -170,8 +138,19 @@ python bot.py
 ### bot/.env
 ```
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
-API_BASE_URL=https://your-railway-app.railway.app
-AI_API_KEY=optional_ai_api_key
+GITHUB_TOKEN=your_github_personal_access_token
+```
+
+## Безопасность секретов
+
+- Локальные секреты храните только в `bot/.env` (файл уже в `.gitignore`)
+- Runtime-логи (`logs/*.log`) не попадают в git
+- Для проверки секретов перед коммитом используйте `gitleaks` через `pre-commit`:
+
+```bash
+pip install pre-commit
+pre-commit install
+pre-commit run --all-files
 ```
 
 ## TODO
