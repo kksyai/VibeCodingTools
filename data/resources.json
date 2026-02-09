@@ -125,6 +125,13 @@
           "url": "https://qwen.ai/home",
           "description": "AI-модель для чата",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=qwen.ai"
+        },
+        {
+          "id": "agentation",
+          "name": "Agentation",
+          "url": "https://agentation.dev/",
+          "description": "The visual feedback tool for agents.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=agentation.dev"
         }
       ]
     },
