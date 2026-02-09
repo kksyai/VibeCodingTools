@@ -23,15 +23,29 @@ VibeCodingTools/
 │   ├── main.py                  # FastAPI приложение
 │   ├── Dockerfile               # Docker контейнер
 │   └── requirements.txt        # Python зависимости
-├── bot/
-│   ├── bot.py                   # Telegram бот
-│   ├── .env.example             # Пример переменных окружения
-│   └── requirements.txt        # Python зависимости
-├── index-new.html               # Новая версия интерфейса
-├── index.html                   # Оригинальный интерфейс
-├── vercel.json                  # Конфиг для Vercel
-└── railway.toml                # Конфиг для Railway
-```
+ ├── bot/
+ │   ├── bot.py                   # Telegram бот
+ │   ├── .env.example             # Пример переменных окружения
+ │   └── requirements.txt        # Python зависимости
+ ├── index.html                   # Веб-интерфейс
+ ├── vercel.json                  # Конфиг для Vercel
+ └── railway.toml                # Конфиг для Railway
+ ```
+
+## Деплой
+
+📖 **Подробные инструкции**: см. [DEPLOYMENT.md](DEPLOYMENT.md)
+
+### Быстрый старт:
+
+1. **Vercel (фронтенд)**: https://vercel.com/new
+2. **Railway (API + бот)**: https://railway.app/new
+
+### После деплоя:
+
+1. Проверьте фронтенд: `https://vibecodingtools.vercel.app`
+2. Проверьте API: `https://your-app.railway.app/api/health`
+3. Протестируйте бота: `@kksyairenderbot`
 
 ## Категории
 
