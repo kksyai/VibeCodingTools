@@ -37,8 +37,8 @@ curl https://vibecodingtools.vercel.app/api/health
    - Environment Variables:
      ```
      PORT=8000
-     ZAI_API_KEY=e763f348ffec4dd1becf2fb52e0d3551.hWHmFvtWETiGQRSy
-     TELEGRAM_BOT_TOKEN=8153467338:AAHfhbPRS9bM-EULuj4ubXLyL5mouGXJ0jo
+      ZAI_API_KEY=your_zai_api_key
+      TELEGRAM_BOT_TOKEN=your_telegram_bot_token
      ```
 6. **Нажмите** "Deploy"
 7. **После деплоя** получите URL вида: `https://your-app.railway.app`
