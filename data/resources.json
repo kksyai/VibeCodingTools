@@ -48,6 +48,13 @@
           "url": "https://www.perplexity.ai/",
           "description": "AI-поисковик с источниками",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=perplexity.ai"
+        },
+        {
+          "id": "supabase-|-the-postgres-development-platform",
+          "name": "Supabase | The Postgres Development Platform.",
+          "url": "https://supabase.com/?ref=producthunt",
+          "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realt...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com"
         }
       ]
     },
