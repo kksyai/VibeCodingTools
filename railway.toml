@@ -1,13 +1,5 @@
 [build]
 builder = "DOCKERFILE"
-dockerfilePath = "api/Dockerfile"
+dockerfilePath = "bot/Dockerfile"
 
 [deploy]
-
-[[services]]
-name = "api"
-type = "web"
-plan = "free"
-
-[services.env]
-PORT = "8000"
