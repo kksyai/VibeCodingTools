@@ -279,6 +279,13 @@
           "url": "https://linear.app/homepage",
           "description": "Linear streamlines issues, projects, and roadmaps. Purpose-built for modern product development.",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=linear.app"
+        },
+        {
+          "id": "pencil-design-on-canvas-land-in-code",
+          "name": "Pencil – Design on canvas. Land in code.",
+          "url": "https://www.pencil.dev/",
+          "description": "Pencil fundamentally increases your engineering speed by bringing designing directly into your pr...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.pencil.dev"
         }
       ]
     },
