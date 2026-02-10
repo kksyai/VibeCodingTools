@@ -7,6 +7,7 @@ import httpx
 
 
 REQUIRED_ENV_VARS = ("TELEGRAM_BOT_TOKEN", "GITHUB_TOKEN")
+DEFAULT_WEBAPP_URL = "https://vibe-coding-tools-gamma.vercel.app"
 
 
 keywords_map = {
@@ -101,6 +102,17 @@ def build_list_page_text(resources: list[dict], page: int, page_size: int) -> tu
         lines.append(f"- {tool['name']} - {tool['url']}")
 
     return "\n".join(lines), page, total_pages
+
+
+def resolve_webapp_url(raw_url: str) -> str:
+    url = (raw_url or "").strip() or DEFAULT_WEBAPP_URL
+    if not (url.startswith("https://") or url.startswith("http://")):
+        raise ValueError("WEBAPP_URL must start with http:// or https://")
+    return url
+
+
+def build_web_link_message(url: str) -> str:
+    return f"Открыть каталог: {url}"
 
 
 async def append_resource_with_retry(resource: dict, read_fn, write_fn, max_retries: int = 1) -> str:

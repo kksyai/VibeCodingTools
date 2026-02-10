@@ -4,7 +4,7 @@ import json
 import base64
 from datetime import datetime
 from typing import Optional
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, MenuButtonWebApp, WebAppInfo
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, filters, ContextTypes
 import httpx
 from bs4 import BeautifulSoup
@@ -12,9 +12,11 @@ from dotenv import load_dotenv
 
 from bot.core import (
     append_resource_with_retry,
+    build_web_link_message,
     build_list_page_text,
     classify_resource,
     flatten_resources,
+    resolve_webapp_url,
     validate_required_env,
 )
 
@@ -22,6 +24,7 @@ load_dotenv()
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+WEBAPP_URL = resolve_webapp_url(os.getenv("WEBAPP_URL", ""))
 GITHUB_REPO = "kksyai/VibeCodingTools"
 DATA_PATH = "data/resources.json"
 
@@ -147,6 +150,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 /start - Начать работу
 /help - Эта справка
 /list - Список всех ресурсов
+/web - Открыть веб-страницу каталога
 
 Отправьте любую ссылку для автоматического добавления!"""
 
@@ -167,6 +171,13 @@ async def list_resources(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         )
     except Exception as e:
         await update.message.reply_text(f"Ошибка: {e}")
+
+
+async def web_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text(
+        build_web_link_message(WEBAPP_URL),
+        disable_web_page_preview=True,
+    )
 
 
 def build_list_keyboard(page: int, total_pages: int) -> Optional[InlineKeyboardMarkup]:
@@ -358,13 +369,23 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             await query.edit_message_text(preview_text, reply_markup=reply_markup)
 
 
+async def post_init(application: Application) -> None:
+    await application.bot.set_chat_menu_button(
+        menu_button=MenuButtonWebApp(
+            text="Каталог",
+            web_app=WebAppInfo(url=WEBAPP_URL),
+        )
+    )
+
+
 def main() -> None:
     validate_required_env(os.environ)
-    application = Application.builder().token(BOT_TOKEN).build()
+    application = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(CommandHandler("list", list_resources))
+    application.add_handler(CommandHandler("web", web_command))
     application.add_handler(CallbackQueryHandler(button_callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_url))
 

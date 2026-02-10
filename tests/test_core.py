@@ -5,10 +5,12 @@ import httpx
 
 from bot.core import (
     append_resource_with_retry,
+    build_web_link_message,
     build_list_page_text,
     classify_resource,
     flatten_resources,
     generate_resource_id,
+    resolve_webapp_url,
     validate_required_env,
 )
 
@@ -74,6 +76,19 @@ class CoreTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn("Список пока пуст", text)
         self.assertEqual(page, 0)
         self.assertEqual(total_pages, 1)
+
+    def test_resolve_webapp_url_uses_default_when_empty(self):
+        url = resolve_webapp_url("")
+        self.assertEqual(url, "https://vibe-coding-tools-gamma.vercel.app")
+
+    def test_resolve_webapp_url_rejects_non_http_scheme(self):
+        with self.assertRaises(ValueError):
+            resolve_webapp_url("ftp://example.com")
+
+    def test_build_web_link_message_contains_clickable_link(self):
+        msg = build_web_link_message("https://vibe-coding-tools-gamma.vercel.app")
+        self.assertIn("Открыть каталог", msg)
+        self.assertIn("https://vibe-coding-tools-gamma.vercel.app", msg)
 
     async def test_append_resource_with_retry_retries_on_conflict(self):
         data = {
