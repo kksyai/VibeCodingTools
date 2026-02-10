@@ -391,6 +391,13 @@
           "url": "https://www.raycast.com/",
           "description": "A collection of powerful productivity tools all within an extendable launcher.",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.raycast.com"
+        },
+        {
+          "id": "home-tmux-tmux-wiki-github",
+          "name": "Home · tmux/tmux Wiki · GitHub",
+          "url": "https://github.com/tmux/tmux/wiki",
+          "description": "tmux source code. Contribute to tmux/tmux development by creating an account on GitHub.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
         }
       ]
     }
