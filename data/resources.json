@@ -69,6 +69,13 @@
           "url": "https://nanaimage.ai/ru",
           "description": "Nana Banana: продвинутый генератор и редактор изображений на базе ИИ. Создавайте впечатляющие изо...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=nanaimage.ai"
+        },
+        {
+          "id": "pandada-ai-from-data-to-decisions-with-ai",
+          "name": "Pandada AI - From Data to Decisions with AI",
+          "url": "https://pandada.ai/",
+          "description": "10x faster analysis. Upload any file, ask in natural language, get instant charts — no formulas, ...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=pandada.ai"
         }
       ]
     },
