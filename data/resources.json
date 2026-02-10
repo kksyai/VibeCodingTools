@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-09",
+  "lastUpdated": "2026-02-10",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -55,6 +55,13 @@
           "url": "https://supabase.com/?ref=producthunt",
           "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realt...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com"
+        },
+        {
+          "id": "chatprd-the-1-ai-platform-for-product-managers",
+          "name": "ChatPRD - The #1 AI Platform for Product Managers",
+          "url": "https://www.chatprd.ai/",
+          "description": "ChatPRD is AI for product managers &amp; their teams. Write great product docs fast and become an...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.chatprd.ai"
         }
       ]
     },
