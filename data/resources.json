@@ -307,6 +307,13 @@
           "url": "https://anthropic.skilljar.com/",
           "description": "Browse all Anthropic courses",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.skilljar.com"
+        },
+        {
+          "id": "free-claude-code-course-learn-ai-for-non-technical-people",
+          "name": "Free Claude Code Course | Learn AI for Non-Technical People",
+          "url": "https://ccforeveryone.com/",
+          "description": "Learn Claude Code IN Claude Code! Free Claude Code course for beginners - no coding experience re...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=ccforeveryone.com"
         }
       ]
     },
