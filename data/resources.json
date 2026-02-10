@@ -62,6 +62,13 @@
           "url": "https://www.chatprd.ai/",
           "description": "ChatPRD is AI for product managers &amp; their teams. Write great product docs fast and become an...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.chatprd.ai"
+        },
+        {
+          "id": "nana-banana-nana-banana",
+          "name": "Nana Banana: Редактор изображений ИИ Nana Banana",
+          "url": "https://nanaimage.ai/ru",
+          "description": "Nana Banana: продвинутый генератор и редактор изображений на базе ИИ. Создавайте впечатляющие изо...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=nanaimage.ai"
         }
       ]
     },
