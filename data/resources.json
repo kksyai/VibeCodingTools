@@ -377,6 +377,13 @@
           "url": "https://test-example.com",
           "description": "Тестовый ресурс",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=test-example.com"
+        },
+        {
+          "id": "raycast-your-shortcut-to-everything",
+          "name": "Raycast - Your shortcut to everything",
+          "url": "https://www.raycast.com/",
+          "description": "A collection of powerful productivity tools all within an extendable launcher.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.raycast.com"
         }
       ]
     }
