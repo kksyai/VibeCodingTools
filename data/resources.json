@@ -181,6 +181,13 @@
           "url": "https://skills.sh/",
           "description": "Каталог скиллов для AI агентов",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=skills.sh"
+        },
+        {
+          "id": "github-obra-superpowers-an-agentic-skills-framework-software-development-methodology-that-works",
+          "name": "GitHub - obra/superpowers: An agentic skills framework & software development methodology that works.",
+          "url": "https://github.com/obra/superpowers",
+          "description": "An agentic skills framework & software development methodology that works. - obra/superpowers",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
         }
       ]
     },
