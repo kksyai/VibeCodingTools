@@ -1,5 +1,6 @@
 import re
 import copy
+import math
 from collections.abc import Mapping
 
 import httpx
@@ -34,12 +35,12 @@ def generate_resource_id(name: str) -> str:
 def classify_resource(url: str, title: str = "", description: str = "") -> str:
     text = f"{url} {title} {description}".lower()
 
-    scores = {}
+    scores: dict[str, int] = {}
     for category, keywords in keywords_map.items():
         score = sum(1 for kw in keywords if kw.lower() in text)
         scores[category] = score
 
-    best = max(scores, key=scores.get)
+    best = max(scores, key=lambda key: scores[key])
     return best if scores[best] > 0 else "utils"
 
 
@@ -51,6 +52,55 @@ def build_new_tool(resource: dict) -> dict:
         "description": resource["description"],
         "icon": resource["icon"],
     }
+
+
+def flatten_resources(data: dict) -> list[dict]:
+    resources = []
+    for category in data.get("categories", {}).values():
+        category_name = category.get("name", "Без категории")
+        for tool in category.get("tools", []):
+            resources.append(
+                {
+                    "name": tool.get("name", "Без названия"),
+                    "url": tool.get("url", ""),
+                    "description": tool.get("description", ""),
+                    "category_name": category_name,
+                }
+            )
+
+    resources.sort(key=lambda item: (item["category_name"].lower(), item["name"].lower()))
+    return resources
+
+
+def build_list_page_text(resources: list[dict], page: int, page_size: int) -> tuple[str, int, int]:
+    if page_size < 1:
+        page_size = 10
+
+    total = len(resources)
+    total_pages = max(1, math.ceil(total / page_size))
+    page = min(max(0, page), total_pages - 1)
+    start = page * page_size
+    end = start + page_size
+    items = resources[start:end]
+
+    lines = [f"Страница {page + 1}/{total_pages} · Всего: {total}", ""]
+
+    if not items:
+        lines.append("Список пока пуст")
+        return "\n".join(lines), page, total_pages
+
+    current_category = None
+    for tool in items:
+        category_name = tool["category_name"]
+        if category_name != current_category:
+            if current_category is not None:
+                lines.append("")
+            lines.append(category_name)
+            current_category = category_name
+
+        lines.append(f"- {tool['name']} - {tool['url']}")
+
+    return "\n".join(lines), page, total_pages
 
 
 async def append_resource_with_retry(resource: dict, read_fn, write_fn, max_retries: int = 1) -> str:

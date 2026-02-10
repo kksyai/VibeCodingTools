@@ -10,7 +10,13 @@ import httpx
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
-from bot.core import append_resource_with_retry, classify_resource, validate_required_env
+from bot.core import (
+    append_resource_with_retry,
+    build_list_page_text,
+    classify_resource,
+    flatten_resources,
+    validate_required_env,
+)
 
 load_dotenv()
 
@@ -32,6 +38,7 @@ categories_map = {
 }
 
 pending_resources = {}
+LIST_PAGE_SIZE = 8
 
 
 # --- Utility functions (moved from api/main.py) ---
@@ -149,15 +156,33 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 async def list_resources(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         data, _ = await github_read_resources()
-        total = sum(len(cat["tools"]) for cat in data["categories"].values())
+        resources = flatten_resources(data)
+        text, page, total_pages = build_list_page_text(resources, page=0, page_size=LIST_PAGE_SIZE)
+        reply_markup = build_list_keyboard(page, total_pages)
 
-        text = f"Всего ресурсов: {total}\n\n"
-        for cat_data in data["categories"].values():
-            text += f"- {cat_data['name']}: {len(cat_data['tools'])}\n"
-
-        await update.message.reply_text(text)
+        await update.message.reply_text(
+            text,
+            reply_markup=reply_markup,
+            disable_web_page_preview=True,
+        )
     except Exception as e:
         await update.message.reply_text(f"Ошибка: {e}")
+
+
+def build_list_keyboard(page: int, total_pages: int) -> Optional[InlineKeyboardMarkup]:
+    buttons = []
+    row = []
+
+    if page > 0:
+        row.append(InlineKeyboardButton("⬅️ Назад", callback_data=f"list_page_{page - 1}"))
+
+    if page < total_pages - 1:
+        row.append(InlineKeyboardButton("Далее ➡️", callback_data=f"list_page_{page + 1}"))
+
+    if row:
+        buttons.append(row)
+
+    return InlineKeyboardMarkup(buttons) if buttons else None
 
 
 async def handle_url(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -240,10 +265,28 @@ async def handle_url(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     query = update.callback_query
     await query.answer()
+    query_data = query.data or ""
 
     user_id = update.effective_user.id
 
-    if query.data == f"confirm_{user_id}":
+    if query_data.startswith("list_page_"):
+        try:
+            page = int(query_data.split("_")[-1])
+            data, _ = await github_read_resources()
+            resources = flatten_resources(data)
+            text, page, total_pages = build_list_page_text(resources, page=page, page_size=LIST_PAGE_SIZE)
+            reply_markup = build_list_keyboard(page, total_pages)
+
+            await query.edit_message_text(
+                text,
+                reply_markup=reply_markup,
+                disable_web_page_preview=True,
+            )
+        except Exception as e:
+            await query.edit_message_text(f"Ошибка: {e}")
+        return
+
+    if query_data == f"confirm_{user_id}":
         resource = pending_resources.get(user_id)
 
         if not resource:
@@ -268,11 +311,11 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         except Exception as e:
             await query.edit_message_text(f"Ошибка: {e}")
 
-    elif query.data == f"cancel_{user_id}":
+    elif query_data == f"cancel_{user_id}":
         pending_resources.pop(user_id, None)
         await query.edit_message_text("Добавление отменено")
 
-    elif query.data == f"change_{user_id}":
+    elif query_data == f"change_{user_id}":
         resource = pending_resources.get(user_id)
         if not resource:
             await query.edit_message_text("Ресурс не найден")
@@ -285,8 +328,8 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         reply_markup = InlineKeyboardMarkup(keyboard)
         await query.edit_message_text("Выберите категорию:", reply_markup=reply_markup)
 
-    elif query.data.startswith("cat_"):
-        parts = query.data.split("_")
+    elif query_data.startswith("cat_"):
+        parts = query_data.split("_")
         cat_id = parts[1]
 
         if user_id in pending_resources:

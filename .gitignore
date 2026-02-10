@@ -17,3 +17,4 @@ ENV/
 .vercel
 logs/*.log
 !logs/.gitkeep
+.tmp-artifacts/
