@@ -328,6 +328,13 @@
           "url": "https://ccforeveryone.com/",
           "description": "Learn Claude Code IN Claude Code! Free Claude Code course for beginners - no coding experience re...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=ccforeveryone.com"
+        },
+        {
+          "id": "telethon-s-documentation-telethon-1420-documentation",
+          "name": "Telethon’s Documentation — Telethon 1.42.0 documentation",
+          "url": "https://docs.telethon.dev/en/stable/",
+          "description": "Ресурс для разработки",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=docs.telethon.dev"
         }
       ]
     },
