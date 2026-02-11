@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-10",
+  "lastUpdated": "2026-02-11",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -76,6 +76,13 @@
           "url": "https://pandada.ai/",
           "description": "10x faster analysis. Upload any file, ask in natural language, get instant charts — no formulas, ...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=pandada.ai"
+        },
+        {
+          "id": "rtrvrai-retrieve-research-robotize-the-web-with-ai",
+          "name": "rtrvr.ai: Retrieve, Research, Robotize the Web with AI",
+          "url": "https://www.rtrvr.ai/",
+          "description": "Navigate the web with AI, automate tasks, and extract data effortlessly.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.rtrvr.ai"
         }
       ]
     },
