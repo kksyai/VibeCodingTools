@@ -426,6 +426,13 @@
           "url": "https://github.com/tmux/tmux/wiki",
           "description": "tmux source code. Contribute to tmux/tmux development by creating an account on GitHub.",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
+        },
+        {
+          "id": "github-serejaris-ris-claude-code",
+          "name": "GitHub - serejaris/ris-claude-code",
+          "url": "https://github.com/serejaris/ris-claude-code",
+          "description": "Contribute to serejaris/ris-claude-code development by creating an account on GitHub.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
         }
       ]
     }
