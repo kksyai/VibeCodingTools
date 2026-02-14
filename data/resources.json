@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-11",
+  "lastUpdated": "2026-02-14",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -202,6 +202,13 @@
           "url": "https://github.com/obra/superpowers",
           "description": "An agentic skills framework & software development methodology that works. - obra/superpowers",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
+        },
+        {
+          "id": "resource",
+          "name": "КОНТЕКСТ",
+          "url": "https://context.lat/",
+          "description": "Справочник AI-инструментов для вайбкодеров: модели, IDE, skills, статьи, MCP серверы",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=context.lat"
         }
       ]
     },
