@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-14",
+  "lastUpdated": "2026-02-15",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -167,6 +167,13 @@
           "url": "https://agentation.dev/",
           "description": "The visual feedback tool for agents.",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=agentation.dev"
+        },
+        {
+          "id": "slidev",
+          "name": "Slidev",
+          "url": "https://sli.dev/",
+          "description": "Presentation slides for developers",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=sli.dev"
         }
       ]
     },
