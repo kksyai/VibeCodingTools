@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-15",
+  "lastUpdated": "2026-02-16",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -90,6 +90,13 @@
           "url": "https://wiro.ai/explore",
           "description": "Wiro AI is a powerful AI API provider. Access ready-to-use AI Models, LLMs, Pipelines, and Functi...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=wiro.ai"
+        },
+        {
+          "id": "trae-collaborate-with-intelligence",
+          "name": "TRAE - Collaborate with Intelligence",
+          "url": "https://www.trae.ai/",
+          "description": "TRAE IDE integrates seamlessly into your workflow, collaborating with you to maximize performance...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.trae.ai"
         }
       ]
     },
