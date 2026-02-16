@@ -384,6 +384,13 @@
           "url": "https://sereja.tech/blog/ai-writing-pipelines",
           "description": "Глубокое исследование конвейеров для создания контента с помощью LLM. 12 паттернов, multi-agent а...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=sereja.tech"
+        },
+        {
+          "id": "producthunt",
+          "name": "Producthunt",
+          "url": "https://www.producthunt.com/",
+          "description": "Ресурс для разработки",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.producthunt.com"
         }
       ]
     },
