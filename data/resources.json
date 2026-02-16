@@ -391,6 +391,13 @@
           "url": "https://www.producthunt.com/",
           "description": "Ресурс для разработки",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.producthunt.com"
+        },
+        {
+          "id": "stitch-prompt-guide-stitch-google-ai-developers-forum",
+          "name": "Stitch Prompt Guide - Stitch - Google AI Developers Forum",
+          "url": "https://discuss.ai.google.dev/t/stitch-prompt-guide/83844",
+          "description": "Stitch Prompt Guide: Effective Prompting\nThis guide provides instructions for crafting effective ...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=discuss.ai.google.dev"
         }
       ]
     },
