@@ -328,6 +328,13 @@
           "url": "https://www.pencil.dev/",
           "description": "Pencil fundamentally increases your engineering speed by bringing designing directly into your pr...",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=www.pencil.dev"
+        },
+        {
+          "id": "getting-started-espanso",
+          "name": "Getting Started | Espanso",
+          "url": "https://espanso.org/docs/get-started/",
+          "description": "In this section, we will cover the basics of Espanso to quickly get you started.",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=espanso.org"
         }
       ]
     },
