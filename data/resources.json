@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-16",
+  "lastUpdated": "2026-02-19",
   "categories": {
     "ai-models": {
       "id": "ai-models",
@@ -188,6 +188,13 @@
           "url": "https://sli.dev/",
           "description": "Presentation slides for developers",
           "icon": "https://www.google.com/s2/favicons?sz=64&domain=sli.dev"
+        },
+        {
+          "id": "google-notebooklm-ai-research-tool-thinking-partner",
+          "name": "Google NotebookLM | AI Research Tool & Thinking Partner",
+          "url": "https://notebooklm.google/",
+          "description": "Meet NotebookLM, the AI research tool and thinking partner that can analyze your sources, turn co...",
+          "icon": "https://www.google.com/s2/favicons?sz=64&domain=notebooklm.google"
         }
       ]
     },
